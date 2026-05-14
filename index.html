@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Perjalanan Kita</title>
 
@@ -27,59 +27,31 @@ body{
   overflow-x:hidden;
 }
 
-/* LOADER */
-
-#loader{
-  position:fixed;
-  inset:0;
-  background:#020617;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:999999;
-  flex-direction:column;
-}
-
-#loader h1{
-  font-size:50px;
-  letter-spacing:3px;
-  animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-  0%{opacity:.4;}
-  50%{opacity:1;}
-  100%{opacity:.4;}
-}
-
 /* BACKGROUND */
 
 .bg{
   position:fixed;
-  width:100%;
-  height:100%;
+  inset:0;
   background:
-  linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.7)),
+  linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.88)),
   url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000&auto=format&fit=crop');
+
   background-size:cover;
   background-position:center;
   z-index:-5;
-  transform:scale(1.1);
 }
-
-/* STARS */
 
 .stars{
   position:fixed;
   width:100%;
   height:100%;
   background:url('https://www.transparenttextures.com/patterns/stardust.png');
-  opacity:.4;
-  animation:moveStars 150s linear infinite;
+  opacity:.35;
+  animation:stars 120s linear infinite;
   z-index:-4;
 }
 
-@keyframes moveStars{
+@keyframes stars{
   from{
     transform:translateY(0);
   }
@@ -92,20 +64,18 @@ body{
 
 nav{
   position:fixed;
-  top:0;
   width:100%;
   padding:25px 8%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  z-index:999;
-  backdrop-filter:blur(15px);
   background:rgba(255,255,255,.05);
-  border-bottom:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(15px);
+  z-index:999;
 }
 
 nav h2{
-  font-size:28px;
+  font-size:30px;
   font-weight:700;
 }
 
@@ -119,7 +89,6 @@ nav a{
   text-decoration:none;
   color:white;
   transition:.3s;
-  font-weight:500;
 }
 
 nav a:hover{
@@ -134,28 +103,28 @@ nav a:hover{
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:0 20px;
+  padding:20px;
 }
 
 .hero-content{
   max-width:1000px;
-  animation:fadeUp 1.5s ease;
 }
 
 .hero h1{
-  font-size:90px;
+  font-size:95px;
   line-height:1.1;
   margin-bottom:25px;
   font-weight:800;
-  background:linear-gradient(to right,#ffffff,#38bdf8);
+
+  background:linear-gradient(to right,#fff,#38bdf8);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
 .hero p{
   font-size:22px;
-  color:#e2e8f0;
-  line-height:1.9;
+  line-height:2;
+  color:#dbeafe;
   margin-bottom:40px;
 }
 
@@ -163,16 +132,39 @@ nav a:hover{
   display:inline-block;
   padding:18px 40px;
   border-radius:100px;
-  background:linear-gradient(to right,#38bdf8,#0ea5e9);
-  color:white;
   text-decoration:none;
+  background:linear-gradient(to right,#0ea5e9,#38bdf8);
+  color:white;
   font-weight:600;
   transition:.4s;
   box-shadow:0 10px 40px rgba(56,189,248,.4);
 }
 
 .btn:hover{
-  transform:translateY(-7px) scale(1.05);
+  transform:translateY(-6px) scale(1.05);
+}
+
+/* MUSIC BUTTON */
+
+.music-btn{
+  position:fixed;
+  right:30px;
+  bottom:30px;
+  width:65px;
+  height:65px;
+  border:none;
+  border-radius:50%;
+  background:linear-gradient(to right,#0ea5e9,#38bdf8);
+  color:white;
+  font-size:24px;
+  cursor:pointer;
+  z-index:99999;
+  transition:.3s;
+  box-shadow:0 10px 40px rgba(56,189,248,.5);
+}
+
+.music-btn:hover{
+  transform:scale(1.1);
 }
 
 /* SECTION */
@@ -181,44 +173,19 @@ section{
   padding:120px 8%;
 }
 
-/* TITLE */
-
 .title{
   text-align:center;
   margin-bottom:70px;
 }
 
 .title h2{
-  font-size:55px;
+  font-size:60px;
   margin-bottom:15px;
 }
 
 .title p{
   color:#cbd5e1;
   font-size:18px;
-}
-
-/* QUOTE */
-
-.quote{
-  background:rgba(255,255,255,.06);
-  backdrop-filter:blur(15px);
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:40px;
-  padding:70px;
-  text-align:center;
-  box-shadow:0 20px 50px rgba(0,0,0,.4);
-}
-
-.quote h3{
-  font-size:42px;
-  margin-bottom:25px;
-}
-
-.quote p{
-  font-size:19px;
-  line-height:2;
-  color:#dbeafe;
 }
 
 /* GALLERY */
@@ -233,16 +200,15 @@ section{
   position:relative;
   overflow:hidden;
   border-radius:30px;
-  background:rgba(255,255,255,.05);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,.08);
-  transition:.5s;
   cursor:pointer;
+  transition:.5s;
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(15px);
 }
 
 .card:hover{
   transform:translateY(-15px);
-  box-shadow:0 25px 60px rgba(56,189,248,.2);
+  box-shadow:0 20px 50px rgba(56,189,248,.25);
 }
 
 .card img{
@@ -253,13 +219,13 @@ section{
 }
 
 .card:hover img{
-  transform:scale(1.12);
+  transform:scale(1.1);
 }
 
 .overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.85),transparent);
+  background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
 }
 
 .card-content{
@@ -277,95 +243,52 @@ section{
 
 .card-content p{
   color:#e2e8f0;
-  font-size:15px;
   line-height:1.8;
 }
 
-/* TIMELINE */
+/* MAP */
 
-.timeline{
-  display:grid;
-  gap:30px;
+.map-box{
+  border-radius:30px;
+  overflow:hidden;
+  margin-top:50px;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
 }
 
-.timeline-link{
-  text-decoration:none;
-  color:white;
-}
-
-.timeline-item{
-  background:rgba(255,255,255,.05);
-  padding:30px;
-  border-radius:25px;
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.08);
-  transition:.4s;
-}
-
-.timeline-item:hover{
-  transform:translateX(10px);
-  box-shadow:0 20px 40px rgba(56,189,248,.2);
-}
-
-.timeline-item h3{
-  margin-bottom:10px;
-  font-size:28px;
+.map-box iframe{
+  width:100%;
+  height:500px;
+  border:none;
 }
 
 /* FOOTER */
 
 footer{
-  padding:60px 20px;
   text-align:center;
-  color:#cbd5e1;
+  padding:50px 20px;
   background:rgba(0,0,0,.3);
-  backdrop-filter:blur(10px);
-}
-
-/* ANIMATION */
-
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+  color:#cbd5e1;
 }
 
 /* RESPONSIVE */
 
 @media(max-width:768px){
 
-  nav{
-    padding:20px;
-  }
+.hero h1{
+  font-size:55px;
+}
 
-  nav ul{
-    display:none;
-  }
+.hero p{
+  font-size:17px;
+}
 
-  .hero h1{
-    font-size:55px;
-  }
+.title h2{
+  font-size:40px;
+}
 
-  .hero p{
-    font-size:17px;
-  }
-
-  .title h2{
-    font-size:38px;
-  }
-
-  .quote{
-    padding:35px;
-  }
-
-  .quote h3{
-    font-size:30px;
-  }
+nav ul{
+  display:none;
+}
 
 }
 
@@ -374,13 +297,15 @@ footer{
 
 <body>
 
-<!-- LOADER -->
+<!-- MUSIC -->
 
-<div id="loader">
-  <h1>Loading Memories...</h1>
-</div>
+<audio id="bgMusic" loop>
+<source src="musik.mp3" type="audio/mp3">
+</audio>
 
-<!-- BACKGROUND -->
+<button class="music-btn" onclick="toggleMusic()">
+🎵
+</button>
 
 <div class="bg"></div>
 <div class="stars"></div>
@@ -388,64 +313,40 @@ footer{
 <!-- NAVBAR -->
 
 <nav>
-  <h2>Liburan Kita</h2>
 
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#gallery">Galeri</a></li>
-    <li><a href="#timeline">Cerita</a></li>
-  </ul>
+<h2>Liburan Kita</h2>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#gallery">Galeri</a></li>
+<li><a href="#map">Map</a></li>
+</ul>
+
 </nav>
 
 <!-- HERO -->
 
 <section class="hero">
 
-  <div class="hero-content">
+<div class="hero-content">
 
-    <h1>
-      Perjalanan<br>
-      Penuh Cerita
-    </h1>
+<h1>
+Perjalanan<br>
+Penuh Cerita
+</h1>
 
-    <p>
-      Tentang tawa yang tidak direncanakan,
-      perjalanan panjang yang melelahkan,
-      dan kenangan yang ternyata menjadi
-      bagian terbaik dalam hidup.
-    </p>
+<p>
+Tentang perjalanan,
+tawa,
+dan kenangan
+yang akan selalu kita ingat selamanya.
+</p>
 
-    <a href="#gallery" class="btn">
-      Jelajahi Kenangan
-    </a>
+<a href="#gallery" class="btn">
+Lihat Kenangan
+</a>
 
-  </div>
-
-</section>
-
-<!-- QUOTE -->
-
-<section>
-
-  <div class="quote">
-
-    <h3>Untuk Perjalanan Kali Ini</h3>
-
-    <p>
-      Tidak semua perjalanan harus sempurna
-      untuk menjadi indah.
-      <br><br>
-      Karena terkadang,
-      yang membuat sebuah tempat terasa spesial
-      adalah siapa yang ada di samping kita.
-      <br><br>
-      Dan mungkin,
-      beberapa tahun nanti,
-      foto-foto ini akan menjadi alasan
-      kita tersenyum kembali.
-    </p>
-
-  </div>
+</div>
 
 </section>
 
@@ -453,149 +354,402 @@ footer{
 
 <section id="gallery">
 
-  <div class="title">
-    <h2>Galeri Perjalanan</h2>
-    <p>20 kenangan terbaik perjalanan kita.</p>
-  </div>
+<div class="title">
 
-  <div class="gallery">
+<h2>Galeri Perjalanan</h2>
 
-    <!-- 20 FOTO -->
+<p>
+20 kenangan terbaik dalam perjalanan ini.
+</p>
 
-    <div class="card"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Pantai Senja</h3><p>Langit sore dan suara ombak.</p></div></div>
+</div>
 
-    <div class="card"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Pegunungan</h3><p>Udara dingin yang damai.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Camping</h3><p>Malam penuh cerita.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Hutan Hijau</h3><p>Perjalanan yang hidup.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Gunung Tinggi</h3><p>View luar biasa.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Road Trip</h3><p>Perjalanan panjang.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Senja Laut</h3><p>Langit jingga indah.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Air Terjun</h3><p>Suasana yang segar.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Danau</h3><p>Pemandangan damai.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Pendakian</h3><p>Capek yang terbayar.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Kopi Pagi</h3><p>Menikmati pagi.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Jalan Sore</h3><p>Momen santai.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Petualangan</h3><p>Cerita baru.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Motoran</h3><p>Bebas tanpa batas.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Tempat Favorit</h3><p>Kenangan terbaik.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Langit Malam</h3><p>Bintang menemani.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1500534314209-a26db0f5bfc5?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Kota Malam</h3><p>Cahaya kota hidup.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Langit Cerah</h3><p>Hari yang indah.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Ombak Laut</h3><p>Deburan ombak damai.</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1500534314209-a26db0f5bfc5?q=80&w=1200&auto=format&fit=crop"><div class="overlay"></div><div class="card-content"><h3>Akhir Perjalanan</h3><p>Awal kenangan baru.</p></div></div>
-
-  </div>
+<div class="gallery" id="galleryContainer"></div>
 
 </section>
 
-<!-- TIMELINE -->
+<!-- MAP -->
 
-<section id="timeline">
+<section id="map">
 
-  <div class="title">
-    <h2>Cerita Perjalanan</h2>
-    <p>Klik untuk melihat video perjalanan.</p>
-  </div>
+<div class="title">
 
-  <div class="timeline">
+<h2>Peta Perjalanan</h2>
 
-    <a href="video1.html" class="timeline-link">
-      <div class="timeline-item">
-        <h3>Hari Pertama</h3>
-        <p>Perjalanan dimulai dengan penuh semangat.</p>
-      </div>
-    </a>
+<p>
+Tempat-tempat yang pernah kita datangi bersama.
+</p>
 
-    <a href="video2.html" class="timeline-link">
-      <div class="timeline-item">
-        <h3>Hari Kedua</h3>
-        <p>Mendaki dan menikmati alam.</p>
-      </div>
-    </a>
+</div>
 
-    <a href="video3.html" class="timeline-link">
-      <div class="timeline-item">
-        <h3>Hari Ketiga</h3>
-        <p>Menutup perjalanan dengan cerita indah.</p>
-      </div>
-    </a>
+<div class="map-box">
 
-  </div>
+<iframe 
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253840.49092815298!2d106.68943126305203!3d-6.229728025157837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e5d7c1e1f5%3A0x301576d14feb9e0!2sJakarta!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid">
+</iframe>
+
+</div>
 
 </section>
-
-<!-- FOOTER -->
 
 <footer>
-  © 2026 Perjalanan Kita • Dibuat Dengan Kenangan
+© 2026 Perjalanan Kita • Dibuat Dengan Kenangan
 </footer>
-
-<!-- MUSIC -->
-
-<audio autoplay loop>
-  <source src="musik.mp3" type="audio/mpeg">
-</audio>
-
-<!-- SCRIPT -->
 
 <script>
 
-window.onload = () =>{
-  document.getElementById('loader').style.display='none';
+/* MUSIC */
+
+const music = document.getElementById('bgMusic');
+
+function toggleMusic(){
+
+if(music.paused){
+music.play();
+}else{
+music.pause();
 }
 
-document.querySelectorAll('.card img').forEach(img => {
+}
 
-  img.onclick = () => {
+document.body.addEventListener('click',()=>{
 
-    let popup = document.createElement('div');
+music.play();
 
-    popup.style.position='fixed';
-    popup.style.inset='0';
-    popup.style.background='rgba(0,0,0,.95)';
-    popup.style.display='flex';
-    popup.style.justifyContent='center';
-    popup.style.alignItems='center';
-    popup.style.zIndex='999999';
+},{once:true});
 
-    let image = document.createElement('img');
+/* FOTO */
 
-    image.src = img.src;
-    image.style.maxWidth='90%';
-    image.style.maxHeight='90%';
-    image.style.borderRadius='25px';
+const photos = [
 
-    popup.appendChild(image);
+{
+title:"Pantai Senja",
+desc:"Langit sore terbaik dalam perjalanan ini.",
+img:"https://files.catbox.moe/fzxoxn.jpg",
+img2:"https://files.catbox.moe/gokqyt.PNG",
+img3:"https://files.catbox.moe/w7mngm.JPG",
+video:"https://files.catbox.moe/um73rg.mp4"
+},
 
-    popup.onclick = () =>{
-      popup.remove();
-    }
+{
+title:"Pegunungan",
+desc:"Dingin yang terasa menenangkan.",
+img:"https://files.catbox.moe/w7mngm.JPG",
+img2:"https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200",
+video:"https://files.catbox.moe/htdqvo.mp4"
+},
 
-    document.body.appendChild(popup);
+{
+title:"Camping",
+desc:"Malam penuh cerita dan tawa.",
+img:"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200",
+video:"https://www.w3schools.com/html/mov_bbb.mp4"
+},
 
-  }
+{
+title:"Hutan Hijau",
+desc:"Suasana yang bikin lupa masalah.",
+img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1500534314209-a26db0f5bfc5?q=80&w=1200",
+video:"https://www.w3schools.com/html/movie.mp4"
+},
+
+{
+title:"Gunung Tinggi",
+desc:"Pemandangan luar biasa dari atas.",
+img:"https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1200",
+video:"https://www.w3schools.com/html/mov_bbb.mp4"
+},
+
+{
+title:"Road Trip",
+desc:"Jalan panjang penuh cerita.",
+img:"https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200",
+video:"https://www.w3schools.com/html/movie.mp4"
+},
+
+{
+title:"Senja Laut",
+desc:"Langit jingga yang indah.",
+img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1200",
+video:"https://www.w3schools.com/html/mov_bbb.mp4"
+},
+
+{
+title:"Air Terjun",
+desc:"Suara alam paling menenangkan.",
+img:"https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200",
+video:"https://www.w3schools.com/html/movie.mp4"
+},
+
+{
+title:"Danau",
+desc:"Tenang seperti perjalanan ini.",
+img:"https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200",
+video:"https://www.w3schools.com/html/mov_bbb.mp4"
+},
+
+{
+title:"Pendakian",
+desc:"Capek yang terbayar sempurna.",
+img:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200",
+video:"https://www.w3schools.com/html/movie.mp4"
+},
+
+{
+title:"Kota Malam",
+desc:"Lampu kota yang tak pernah padam.",
+img:"https://images.unsplash.com/photo-1491884662610-dfcd28f30cfb?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1496307653780-42ee777d4833?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=1200",
+video:"https://www.w3schools.com/html/movie.mp4"
+},
+
+{
+title:"Pantai Biru",
+desc:"Air jernih seperti mimpi.",
+img:"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?q=80&w=1200",
+video:"https://www.w3schools.com/html/mov_bbb.mp4"
+},
+
+{
+title:"Bunga Musim Semi",
+desc:"Warna kehidupan yang indah.",
+img:"https://images.unsplash.com/photo-1468327768560-75b778cbb551?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1468581264429-2548ef9eb732?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200",
+video:"https://www.w3schools.com/html/movie.mp4"
+},
+
+{
+title:"Desa Tenang",
+desc:"Hidup sederhana penuh makna.",
+img:"https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200",
+video:"https://www.w3schools.com/html/mov_bbb.mp4"
+},
+
+{
+title:"Langit Bintang",
+desc:"Malam penuh harapan.",
+img:"https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200",
+video:"https://www.w3schools.com/html/movie.mp4"
+},
+
+{
+title:"Jalan Sunyi",
+desc:"Perjalanan tanpa suara.",
+img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200",
+video:"https://www.w3schools.com/html/mov_bbb.mp4"
+},
+
+{
+title:"Sawah Hijau",
+desc:"Ketenangan pedesaan.",
+img:"https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1500534314209-a25dbb2bd429?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200",
+video:"https://www.w3schools.com/html/movie.mp4"
+},
+
+{
+title:"Jembatan Indah",
+desc:"Penghubung cerita kita.",
+img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200",
+video:"https://www.w3schools.com/html/mov_bbb.mp4"
+},
+
+{
+title:"Pelabuhan",
+desc:"Tempat awal dan akhir perjalanan.",
+img:"https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200",
+video:"https://www.w3schools.com/html/movie.mp4"
+},
+
+{
+title:"Matahari Terbit",
+desc:"Awal hari penuh harapan baru.",
+img:"https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200",
+img2:"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200",
+img3:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200",
+video:"https://www.w3schools.com/html/mov_bbb.mp4"
+}
+
+];
+
+/* TAMPILKAN FOTO */
+
+const galleryContainer = document.getElementById('galleryContainer');
+
+photos.forEach((photo,index)=>{
+
+galleryContainer.innerHTML += `
+
+<div class="card" onclick="openGallery(${index})">
+
+<img src="${photo.img}">
+
+<div class="overlay"></div>
+
+<div class="card-content">
+
+<h3>${photo.title}</h3>
+
+<p>${photo.desc}</p>
+
+</div>
+
+</div>
+
+`;
 
 });
+
+/* POPUP */
+
+function openGallery(index){
+
+const photo = photos[index];
+
+let popup = document.createElement('div');
+
+popup.style.position='fixed';
+popup.style.inset='0';
+popup.style.background='rgba(0,0,0,.97)';
+popup.style.zIndex='999999';
+popup.style.overflow='auto';
+popup.style.padding='60px';
+
+popup.innerHTML = `
+
+<div style="max-width:1200px;margin:auto">
+
+<h1 style="
+font-size:60px;
+margin-bottom:20px;
+">
+${photo.title}
+</h1>
+
+<p style="
+font-size:20px;
+line-height:2;
+color:#cbd5e1;
+margin-bottom:40px;
+">
+Tidak semua perjalanan harus sempurna untuk menjadi indah.
+Karena terkadang,
+yang membuat sebuah tempat terasa spesial adalah siapa yang ada di samping kita.
+</p>
+
+<div style="
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+margin-bottom:50px;
+">
+
+<img src="${photo.img}" style="
+width:100%;
+height:320px;
+object-fit:cover;
+border-radius:25px;
+">
+
+<img src="${photo.img2}" style="
+width:100%;
+height:320px;
+object-fit:cover;
+border-radius:25px;
+">
+
+<img src="${photo.img3}" style="
+width:100%;
+height:320px;
+object-fit:cover;
+border-radius:25px;
+">
+
+</div>
+
+<h2 style="
+font-size:40px;
+margin-bottom:25px;
+">
+Video Perjalanan
+</h2>
+
+<video controls autoplay muted style="
+width:100%;
+border-radius:30px;
+margin-bottom:40px;
+box-shadow:0 20px 60px rgba(0,0,0,.5);
+">
+
+<source src="${photo.video}" type="video/mp4">
+
+</video>
+
+<div style="
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+">
+
+<button onclick="this.parentElement.parentElement.parentElement.remove()"
+
+style="
+padding:15px 35px;
+border:none;
+border-radius:50px;
+background:#ef4444;
+color:white;
+font-size:18px;
+cursor:pointer;
+">
+
+Tutup
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+document.body.appendChild(popup);
+
+}
 
 </script>
 
 </body>
-</html>
+</html> 
